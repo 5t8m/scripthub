@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1086, height=466, initial-scale=1.0" />
+    <title>Pandora Script Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 1086px;
+        height: 466px;
+        overflow: hidden;
+        font-family: "Poppins", sans-serif;
+        background: #0e0e0e;
+        color: white;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 16px;
+      }
+
+      .header-content {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .stats {
+        display: flex;
+        gap: 12px;
+      }
+
+      .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+      }
+
+      .search-container {
+        margin-top: 5px;
+        flex: 0 0 auto;
+      }
+
+      .search-wrapper {
+        display: flex;
+        align-items: center;
+        background: #1e1e1e;
+        border-radius: 6px;
+        padding: 6px 10px;
+      }
+
+      .input-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+
+      .input-container input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 14px;
+        padding-left: 6px;
+      }
+
+      .search-icon {
+        color: #aaa;
+      }
+
+      .pagination {
+        display: flex;
+        gap: 6px;
+        margin-left: 12px;
+      }
+
+      .pagination button {
+        background: #2c2c2c;
+        border: none;
+        padding: 6px 10px;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+      }
+
+      .scripts-container {
+        flex: 1 1 auto;
+        margin-top: 10px;
+        overflow-y: auto;
+        background: #151515;
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      /* Add scrollbar styling if needed */
+      .scripts-container::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .scripts-container::-webkit-scrollbar-thumb {
+        background-color: #444;
+        border-radius: 6px;
+      }
+
+      /* You can keep the .toast, .loader styles as needed */
+
+    </style>
+  </head>
+  <body>
+    <div class="toast-container"></div>
+    <div class="container">
+      <header>
+        <div class="header-content">
+          <div class="stats">
+            <div class="stat-item">
+              <i class="fa-regular fa-file"></i>
+              <span id="scriptCount">- Scripts</span>
+            </div>
+            <div class="stat-item">
+              <i class="fa-solid fa-puzzle-piece"></i>
+              <span id="gameCount">- Games</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <header>
+        <div class="search-container">
+          <div class="search-wrapper">
+            <div class="input-container">
+              <i class="fas fa-search search-icon"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Powered by scriptblox.com"
+              />
+            </div>
+            <div class="pagination">
+              <button id="prevBtn" disabled>←</button>
+              <button id="nextBtn" disabled>→</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="scripts-container" id="scriptsContainer">
+        <!-- Scripts will be dynamically added here -->
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
